@@ -14,6 +14,7 @@ import {
   BiLogoNodejs,
   BiLogoPython,
   BiLogoGit,
+  BiLogoMongodb,
 } from 'react-icons/bi';
 import {
   SiMysql,
@@ -37,6 +38,7 @@ const Skills = () => {
       technologies: [
         { name: "PHP", icon: BiLogoPhp },
         { name: "MySQL", icon: SiMysql },
+        { name: "MongoDB", icon: BiLogoMongodb },
         { name: "Node.js", icon: BiLogoNodejs },
         { name: "Python", icon: BiLogoPython },
       ]
