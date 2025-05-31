@@ -1,0 +1,137 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+
+const Skills = () => {
+  const techStack = [
+    {
+      category: "Frontend Development",
+      technologies: [
+        { name: "HTML" },
+        { name: "CSS" },
+        { name: "JavaScript" },
+        { name: "React" },
+        { name: "Tailwind CSS" },
+        { name: "Bootstrap" },
+      ]
+    },
+    {
+      category: "Backend Development",
+      technologies: [
+        { name: "PHP" },
+        { name: "MySQL" },
+        { name: "Node.js" },
+        { name: "Python" },
+      ]
+    },
+    {
+      category: "Others",
+      technologies: [
+        { name: "Git" },
+        { name: "GitHub" },
+      ]
+    }
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3
+      }
+    }
+  };
+
+  const categoryVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const techVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.3 }
+    }
+  };
+
+  return (
+    <motion.div 
+      className="min-h-[calc(100vh-4rem)] px-4 md:px-8 lg:px-16 py-16"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
+      <div className="max-w-7xl mx-auto">
+        <motion.div 
+          className="text-center mb-16"
+          variants={categoryVariants}
+        >
+          <motion.h1 
+            className="text-4xl md:text-5xl font-bold text-white mb-6"
+            variants={categoryVariants}
+          >
+            Tech Stack
+          </motion.h1>
+          <motion.p 
+            className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed"
+            variants={categoryVariants}
+          >
+            These are the technologies I've worked with throughout my journey as a web developer. 
+            I specialize in creating responsive and dynamic web applications, offering comprehensive 
+            web development services from frontend design to backend implementation.
+          </motion.p>
+        </motion.div>
+
+        <motion.div 
+          className="space-y-12"
+          variants={containerVariants}
+        >
+          {techStack.map((category, index) => (
+            <motion.div 
+              key={index} 
+              className="space-y-6"
+              variants={categoryVariants}
+            >
+              <motion.h2 
+                className="text-2xl font-semibold text-white border-b border-gray-700 pb-4"
+                variants={categoryVariants}
+              >
+                {category.category}
+              </motion.h2>
+
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {category.technologies.map((tech, techIndex) => (
+                  <motion.div
+                    key={techIndex}
+                    className="p-4 rounded-lg border border-gray-700 hover:bg-white/5 transition-all duration-300 backdrop-blur-sm flex items-center justify-center"
+                    variants={techVariants}
+                    whileHover={{ 
+                      scale: 1.05,
+                      boxShadow: "0 0 20px rgba(255,255,255,0.1)"
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <h3 className="text-lg font-semibold text-white text-center">
+                      {tech.name}
+                    </h3>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+};
+
+export default Skills; 
