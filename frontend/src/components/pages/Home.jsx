@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FaFacebook } from 'react-icons/fa';
 import CV from '../../assets/cv/cv.pdf';
 import profileImg from '../../assets/img/Cortez, Francis Emil M..jpg';
 
@@ -59,7 +60,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.8 }}
           >
-            4th Year IT Student at Don Honorio Ventura State University
+            Aspiring Full Stack Developer
           </motion.h2>
           
           <motion.p 
@@ -72,7 +73,7 @@ const Home = () => {
           </motion.p>
           
           <motion.div 
-            className="pt-4 md:pt-6"
+            className="pt-4 md:pt-6 flex gap-4 flex-wrap"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1.2 }}
@@ -80,11 +81,23 @@ const Home = () => {
             <motion.a 
               href={CV}
               download="Francis_Cortez_CV.pdf"
-              className="inline-block px-8 py-4 md:py-3 my-4 md:my-0 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-colors duration-300"
+              className="inline-block px-8 py-4 md:py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-colors duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Download CV
+            </motion.a>
+            
+            <motion.a 
+              href="https://www.facebook.com/bambam.m.cortez/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 md:py-3 bg-transparent border-2 border-white text-white font-medium rounded-lg hover:bg-[#1877F2] hover:border-[#1877F2] transition-colors duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <FaFacebook className="text-xl" />
+              Facebook
             </motion.a>
           </motion.div>
         </motion.div>

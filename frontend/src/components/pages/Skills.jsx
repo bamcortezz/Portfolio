@@ -1,33 +1,51 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { 
+  AiFillHtml5,
+  AiFillGithub,
+} from 'react-icons/ai';
+import {
+  BiLogoCss3,
+  BiLogoJavascript,
+  BiLogoReact,
+  BiLogoTailwindCss,
+  BiLogoBootstrap,
+  BiLogoPhp,
+  BiLogoNodejs,
+  BiLogoPython,
+  BiLogoGit,
+} from 'react-icons/bi';
+import {
+  SiMysql,
+} from 'react-icons/si';
 
 const Skills = () => {
   const techStack = [
     {
       category: "Frontend Development",
       technologies: [
-        { name: "HTML" },
-        { name: "CSS" },
-        { name: "JavaScript" },
-        { name: "React" },
-        { name: "Tailwind CSS" },
-        { name: "Bootstrap" },
+        { name: "HTML", icon: AiFillHtml5 },
+        { name: "CSS", icon: BiLogoCss3 },
+        { name: "JavaScript", icon: BiLogoJavascript },
+        { name: "React", icon: BiLogoReact },
+        { name: "Tailwind CSS", icon: BiLogoTailwindCss },
+        { name: "Bootstrap", icon: BiLogoBootstrap },
       ]
     },
     {
       category: "Backend Development",
       technologies: [
-        { name: "PHP" },
-        { name: "MySQL" },
-        { name: "Node.js" },
-        { name: "Python" },
+        { name: "PHP", icon: BiLogoPhp },
+        { name: "MySQL", icon: SiMysql },
+        { name: "Node.js", icon: BiLogoNodejs },
+        { name: "Python", icon: BiLogoPython },
       ]
     },
     {
       category: "Others",
       technologies: [
-        { name: "Git" },
-        { name: "GitHub" },
+        { name: "Git", icon: BiLogoGit },
+        { name: "GitHub", icon: AiFillGithub },
       ]
     }
   ];
@@ -112,7 +130,7 @@ const Skills = () => {
                 {category.technologies.map((tech, techIndex) => (
                   <motion.div
                     key={techIndex}
-                    className="p-4 rounded-lg border border-gray-700 hover:bg-white/5 transition-all duration-300 backdrop-blur-sm flex items-center justify-center"
+                    className="p-4 rounded-lg border border-gray-700 hover:bg-white/5 transition-all duration-300 backdrop-blur-sm flex items-center justify-center gap-2"
                     variants={techVariants}
                     whileHover={{ 
                       scale: 1.05,
@@ -120,6 +138,7 @@ const Skills = () => {
                     }}
                     whileTap={{ scale: 0.95 }}
                   >
+                    {tech.icon && <tech.icon className="text-2xl" />}
                     <h3 className="text-lg font-semibold text-white text-center">
                       {tech.name}
                     </h3>
