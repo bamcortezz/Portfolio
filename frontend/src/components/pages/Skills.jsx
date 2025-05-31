@@ -104,8 +104,8 @@ const Skills = () => {
             variants={categoryVariants}
           >
             These are the technologies I've worked with throughout my journey as a web developer. 
-            I specialize in creating responsive and dynamic web applications, offering comprehensive 
-            web development services from frontend design to backend implementation.
+            With deep knowledge of full-stack web systems, I specialize in building responsive and dynamic applications 
+            that deliver exceptional user experiences.
           </motion.p>
         </motion.div>
 
