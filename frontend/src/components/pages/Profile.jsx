@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const About = () => {
+const Profile = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -24,32 +24,32 @@ const About = () => {
   };
 
   return (
-    <motion.div 
+    <motion.div
       className="min-h-[calc(100vh-4rem)] px-4 md:px-8 lg:px-16 py-16"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
       <div className="max-w-7xl mx-auto">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           variants={sectionVariants}
         >
-          <motion.h1 
+          <motion.h1
             className="text-4xl md:text-5xl font-bold text-white mb-6"
             variants={sectionVariants}
           >
-            Resume
+            Profile
           </motion.h1>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Left Column - Personal Info */}
-          <motion.div 
+          <motion.div
             className="space-y-8"
             variants={sectionVariants}
           >
-            <motion.div 
+            <motion.div
               className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-gray-700"
               variants={sectionVariants}
               whileHover={{ scale: 1.02 }}
@@ -57,11 +57,11 @@ const About = () => {
             >
               <h2 className="text-2xl font-semibold text-white mb-4">Who I Am</h2>
               <p className="text-gray-400 leading-relaxed">
-                Hello! I'm Francis Emil M. Cortez, but you can call me Bam. I'm from San Simon, Pampanga. I'm known for being a fun-loving person who enjoys making the most out of life. In my free time, you'll find me either immersed in video games, shooting hoops on the basketball court, or diving deep into coding projects. Programming isn't just a skill for me - it's a passion that I pursue whenever I have spare time.
+                Hello! I'm Francis Emil M. Cortez, but you can call me Bam. I'm from Pampanga, Philippines. I'm known for being a fun-loving person who enjoys making the most out of life. In my free time, you'll find me either immersed in video games, shooting hoops on the basketball court, or diving deep into coding projects. Programming isn't just a skill for me - it's a passion that I pursue whenever I have spare time.
               </p>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-gray-700"
               variants={sectionVariants}
               whileHover={{ scale: 1.02 }}
@@ -93,11 +93,11 @@ const About = () => {
           </motion.div>
 
           {/* Right Column - Goals and Interests */}
-          <motion.div 
+          <motion.div
             className="space-y-8"
             variants={sectionVariants}
           >
-            <motion.div 
+            <motion.div
               className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-gray-700"
               variants={sectionVariants}
               whileHover={{ scale: 1.02 }}
@@ -109,7 +109,7 @@ const About = () => {
               </p>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-gray-700"
               variants={sectionVariants}
               whileHover={{ scale: 1.02 }}
@@ -125,7 +125,7 @@ const About = () => {
                     <li>President's List (1st Semester 2024-2025)</li>
                   </ul>
                 </div>
-                
+
                 <div className="space-y-2">
                   <h3 className="text-white font-medium">Certifications</h3>
                   <ul className="list-disc list-inside ml-2 space-y-1">
@@ -144,4 +144,4 @@ const About = () => {
   );
 };
 
-export default About; 
+export default Profile; 

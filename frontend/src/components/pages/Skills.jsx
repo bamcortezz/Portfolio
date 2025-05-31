@@ -15,10 +15,13 @@ import {
   BiLogoPython,
   BiLogoGit,
   BiLogoMongodb,
+  BiLogoDiscord,
+  BiLogoTrello,
 } from 'react-icons/bi';
 import {
   SiMysql,
 } from 'react-icons/si';
+
 
 const Skills = () => {
   const techStack = [
@@ -48,6 +51,8 @@ const Skills = () => {
       technologies: [
         { name: "Git", icon: BiLogoGit },
         { name: "GitHub", icon: AiFillGithub },
+        { name: "Discord", icon: BiLogoDiscord },
+        { name: "Trello", icon: BiLogoTrello },
       ]
     }
   ];
