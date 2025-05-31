@@ -69,7 +69,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1 }}
           >
-            Passionate about technology and creating innovative solutions. Currently expanding my skills in web development and software engineering.
+            Passionate web developer with strong computer literacy, actively expanding my development skills.
           </motion.p>
           
           <motion.div 
