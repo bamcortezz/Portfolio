@@ -73,7 +73,7 @@ const Home = () => {
           </motion.p>
           
           <motion.div 
-            className="pt-4 md:pt-6 flex gap-4 flex-wrap"
+            className="pt-4 pb-8 md:pt-6 md:pb-12 flex flex-row gap-4 w-full justify-center md:justify-start"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1.2 }}
@@ -81,7 +81,7 @@ const Home = () => {
             <motion.a 
               href={CV}
               download="Francis_Cortez_CV.pdf"
-              className="inline-block px-8 py-4 md:py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-colors duration-300"
+              className="inline-block px-6 sm:px-8 py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-colors duration-300 text-sm sm:text-base"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -92,7 +92,7 @@ const Home = () => {
               href="https://www.facebook.com/bambam.m.cortez/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 md:py-3 bg-transparent border-2 border-white text-white font-medium rounded-lg hover:bg-[#1877F2] hover:border-[#1877F2] transition-colors duration-300"
+              className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 bg-transparent border-2 border-white text-white font-medium rounded-lg hover:bg-[#1877F2] hover:border-[#1877F2] transition-colors duration-300 text-sm sm:text-base"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
