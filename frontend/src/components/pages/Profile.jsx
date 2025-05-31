@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FaUserCircle, FaGraduationCap, FaTrophy, FaBullseye } from 'react-icons/fa';
 
 const Profile = () => {
   const containerVariants = {
@@ -55,7 +56,10 @@ const Profile = () => {
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
-              <h2 className="text-2xl font-semibold text-white mb-4">Who I Am</h2>
+              <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+                <FaUserCircle className="text-3xl text-white" />
+                Who I Am
+              </h2>
               <p className="text-gray-400 leading-relaxed">
                 Hello! I'm Francis Emil M. Cortez, but you can call me Bam. I'm from Pampanga, Philippines. I'm known for being a fun-loving person who enjoys making the most out of life. In my free time, you'll find me either immersed in video games, shooting hoops on the basketball court, or diving deep into coding projects. Programming isn't just a skill for me - it's a passion that I pursue whenever I have spare time.
               </p>
@@ -67,7 +71,10 @@ const Profile = () => {
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
-              <h2 className="text-2xl font-semibold text-white mb-4">Education</h2>
+              <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+                <FaGraduationCap className="text-3xl text-white" />
+                Education
+              </h2>
               <div className="text-gray-400 leading-relaxed space-y-6">
                 <div>
                   <h3 className="text-white font-medium text-lg">Don Honorio Ventura State University</h3>
@@ -103,7 +110,10 @@ const Profile = () => {
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
-              <h2 className="text-2xl font-semibold text-white mb-4">My Goals</h2>
+              <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+                <FaBullseye className="text-3xl text-white" />
+                My Goals
+              </h2>
               <p className="text-gray-400 leading-relaxed">
                 My primary goal is to become a successful full stack developer. I am committed to being highly proficient and efficient in my work, constantly striving to improve my skills and deliver high-quality solutions. Through dedication and hard work, I aim to build a successful career in software development, where I can contribute meaningfully to impactful projects and continue growing as a professional.
               </p>
@@ -115,7 +125,10 @@ const Profile = () => {
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
-              <h2 className="text-2xl font-semibold text-white mb-4">Achievements</h2>
+              <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+                <FaTrophy className="text-3xl text-white" />
+                Achievements
+              </h2>
               <div className="text-gray-400 leading-relaxed space-y-3">
                 <div className="space-y-2">
                   <h3 className="text-white font-medium">Academic Excellence</h3>
