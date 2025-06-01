@@ -135,8 +135,11 @@ const ProjectDetails = () => {
           <div className="md:col-span-2 space-y-6 md:space-y-8">
             <section className="bg-white/5 rounded-xl p-6 md:p-8">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6">Overview</h2>
+              <p className="text-gray-300 leading-relaxed text-base md:text-lg mb-6">
+                {project.description}
+              </p>
               <p className="text-gray-300 leading-relaxed text-base md:text-lg">
-                {project.longDescription}
+                {project.details}
               </p>
             </section>
 

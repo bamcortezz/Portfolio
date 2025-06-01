@@ -6,6 +6,11 @@ import twitchInsightImg from '@/assets/img/projects/twitch-insight.png';
 import twitchInsight1Img from '@/assets/img/projects/twitch-insight1.png';
 import twitchInsight2Img from '@/assets/img/projects/twitch-insight2.png';
 import twitchInsight3Img from '@/assets/img/projects/twitch-insight3.png';
+import twitchInsight4Img from '@/assets/img/projects/twitch-insight4.png';
+import twitchInsight5Img from '@/assets/img/projects/twitch-insight5.png';
+import twitchInsight6Img from '@/assets/img/projects/twitch-insight6.png';
+import twitchInsight7Img from '@/assets/img/projects/twitch-insight7.png';
+import twitchInsight11Img from '@/assets/img/projects/twitch-insight11.png';
 import inventorySystemImg from '@/assets/img/projects/inventory-system.png';
 import portfolioImg from "@/assets/img/projects/portfolio.png";
 import portfolio1Img from "@/assets/img/projects/portfolio1.png";
@@ -15,8 +20,8 @@ import portfolio3Img from "@/assets/img/projects/portfolio3.png";
 export const projects = [
   {
     title: "Twitch Insight",
-    description: "A real-time sentiment analysis web application that processes Twitch chat comments, providing instant emotional context and trends. Built as a Capstone Project, this tool offers valuable insights for streamers and content creators.",
-    longDescription: "This application uses advanced natural language processing to analyze chat messages in real-time, providing streamers with valuable insights about their audience's engagement and emotional responses. Features include sentiment tracking, keyword analysis, and trend visualization.",
+    description: "A real-time sentiment analysis web application for Twitch platform.",
+    details: "Twitch Insight analyzes chat messages in real-time using the RoBERTa natural language processing model. By integrating with the Twitch API, we extract live chat comments and provide streamers with instant insights about their audience's emotional responses. The dashboard displays sentiment trends and engagement metrics, helping content creators better understand their community.",
     type: "Capstone Project",
     technologies: [
       { name: "React", icon: SiReact, color: "text-[#61DAFB]" },
@@ -33,13 +38,18 @@ export const projects = [
       twitchInsightImg,
       twitchInsight1Img,
       twitchInsight2Img,
-      twitchInsight3Img
+      twitchInsight3Img,
+      twitchInsight4Img,
+      twitchInsight5Img,
+      twitchInsight6Img,
+      twitchInsight7Img,
+      twitchInsight11Img
     ]
   },
   {
     title: "IMS",
-    description: "A comprehensive beer inventory management system developed as a school project. Features include stock tracking, order management, and detailed reporting capabilities.",
-    longDescription: "This inventory management system provides a complete solution for tracking beer inventory, managing orders, and generating detailed reports. It includes features like low stock alerts, order history, and sales analytics.",
+    description: "A comprehensive beer inventory management system.",
+    details: "A school project built using PHP Object-Oriented Programming principles. This system manages beer inventory with features for stock tracking, order processing, and detailed reporting. It includes user authentication and an intuitive interface for efficient inventory management.",
     type: "School Project",
     technologies: [
       { name: "PHP", icon: SiPhp, color: "text-[#777BB4]" },
@@ -58,8 +68,8 @@ export const projects = [
   },
   {
     title: "Portfolio",
-    description: "A personal portfolio website showcasing my projects and skills. Built with modern web technologies and featuring a clean, responsive design.",
-    longDescription: "This portfolio website is built with React and Tailwind CSS, featuring smooth animations, responsive design, and modern UI/UX principles. It showcases my projects, skills, and professional journey in web development.",
+    description: "A showcase of my development journey and technical expertise.",
+    details: "A personal project built with React and Tailwind CSS to showcase my development skills and projects. Features a clean, responsive design with smooth animations and an organized presentation of my work and technical capabilities.",
     type: "Personal Project",
     technologies: [
       { name: "React", icon: SiReact, color: "text-[#61DAFB]" },
@@ -129,7 +139,7 @@ const Projects = () => {
           <motion.div
             key={index}
             variants={projectVariants}
-            className="group relative bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700 transition-all duration-300 cursor-pointer"
+            className="group relative bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700 transition-all duration-300 cursor-pointer hover:border-blue-500/50"
             whileHover={{ scale: 1.02 }}
             onClick={() => navigate(`/projects/${project.title.toLowerCase().replace(/\s+/g, '-')}`)}
           >
@@ -141,7 +151,12 @@ const Projects = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              {/* Preview Overlay */}
+              <div className="absolute inset-0 bg-black/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-white text-lg font-semibold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  Click to Preview
+                </p>
+              </div>
             </div>
             
             <div className="p-6">
@@ -181,6 +196,7 @@ const Projects = () => {
                   className="flex items-center gap-2 px-4 py-2 bg-[#1A1A1A] text-white font-medium rounded-lg hover:bg-[#252525] transition-colors duration-300"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={(e) => e.stopPropagation()}
                 >
                   <FaGithub className="w-4 h-4" />
                   <span className="text-sm">View Code</span>
