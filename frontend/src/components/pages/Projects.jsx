@@ -1,11 +1,18 @@
 import { motion } from 'framer-motion';
 import { FaGithub } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import { SiReact, SiTailwindcss, SiMongodb, SiPython, SiFlask, SiPhp, SiMysql, SiJavascript, SiHtml5, SiBootstrap } from 'react-icons/si';
 import twitchInsightImg from '@/assets/img/projects/twitch-insight.png';
+import twitchInsight1Img from '@/assets/img/projects/twitch-insight1.png';
+import twitchInsight2Img from '@/assets/img/projects/twitch-insight2.png';
+import twitchInsight3Img from '@/assets/img/projects/twitch-insight3.png';
 import inventorySystemImg from '@/assets/img/projects/inventory-system.png';
 import portfolioImg from "@/assets/img/projects/portfolio.png";
+import portfolio1Img from "@/assets/img/projects/portfolio1.png";
+import portfolio2Img from "@/assets/img/projects/portfolio2.png";
+import portfolio3Img from "@/assets/img/projects/portfolio3.png";
 
-const projects = [
+export const projects = [
   {
     title: "Twitch Insight",
     description: "A real-time sentiment analysis web application that processes Twitch chat comments, providing instant emotional context and trends. Built as a Capstone Project, this tool offers valuable insights for streamers and content creators.",
@@ -21,7 +28,13 @@ const projects = [
     links: {
       github: "https://github.com/bamcortezz/Capstone"
     },
-    image: twitchInsightImg
+    image: twitchInsightImg,
+    images: [
+      twitchInsightImg,
+      twitchInsight1Img,
+      twitchInsight2Img,
+      twitchInsight3Img
+    ]
   },
   {
     title: "IMS",
@@ -38,7 +51,10 @@ const projects = [
     links: {
       github: "https://github.com/bamcortezz/IMS"
     },
-    image: inventorySystemImg
+    image: inventorySystemImg,
+    images: [
+      inventorySystemImg
+    ]
   },
   {
     title: "Portfolio",
@@ -52,11 +68,18 @@ const projects = [
     links: {
       github: "https://github.com/bamcortezz/Portfolio"
     },
-    image: portfolioImg
+    image: portfolioImg,
+    images: [
+      portfolioImg,
+      portfolio1Img,
+      portfolio2Img,
+      portfolio3Img
+    ]
   }
 ];
 
 const Projects = () => {
+  const navigate = useNavigate();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -106,8 +129,9 @@ const Projects = () => {
           <motion.div
             key={index}
             variants={projectVariants}
-            className="group relative bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700 transition-all duration-300"
+            className="group relative bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700 transition-all duration-300 cursor-pointer"
             whileHover={{ scale: 1.02 }}
+            onClick={() => navigate(`/projects/${project.title.toLowerCase().replace(/\s+/g, '-')}`)}
           >
             <div className="relative overflow-hidden aspect-video">
               <motion.img

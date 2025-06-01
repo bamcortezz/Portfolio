@@ -5,6 +5,7 @@ import Home from "./components/pages/Home";
 import Skills from "./components/pages/Skills";
 import Profile from "./components/pages/Profile";
 import Projects from "./components/pages/Projects";
+import ProjectDetails from "./components/pages/ProjectDetails";
 import "./App.css";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/skills" element={<Skills />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/:id" element={<ProjectDetails />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>
         </main>
