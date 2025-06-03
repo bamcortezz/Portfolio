@@ -2,20 +2,20 @@ import { motion } from 'framer-motion';
 import { FaGithub } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { SiReact, SiTailwindcss, SiMongodb, SiPython, SiFlask, SiPhp, SiMysql, SiJavascript, SiHtml5, SiBootstrap } from 'react-icons/si';
-import twitchInsightImg from '@/assets/img/projects/twitch-insight.png';
-import twitchInsight1Img from '@/assets/img/projects/twitch-insight1.png';
-import twitchInsight2Img from '@/assets/img/projects/twitch-insight2.png';
-import twitchInsight3Img from '@/assets/img/projects/twitch-insight3.png';
-import twitchInsight4Img from '@/assets/img/projects/twitch-insight4.png';
-import twitchInsight5Img from '@/assets/img/projects/twitch-insight5.png';
-import twitchInsight6Img from '@/assets/img/projects/twitch-insight6.png';
-import twitchInsight7Img from '@/assets/img/projects/twitch-insight7.png';
-import twitchInsight11Img from '@/assets/img/projects/twitch-insight11.png';
-import inventorySystemImg from '@/assets/img/projects/inventory-system.png';
-import portfolioImg from "@/assets/img/projects/portfolio.png";
-import portfolio1Img from "@/assets/img/projects/portfolio1.png";
-import portfolio2Img from "@/assets/img/projects/portfolio2.png";
-import portfolio3Img from "@/assets/img/projects/portfolio3.png";
+import twitchInsightImg from '@/assets/img/projects/twitch-insight/twitch-insight.png';
+import twitchInsight1Img from '@/assets/img/projects/twitch-insight/twitch-insight1.png';
+import twitchInsight2Img from '@/assets/img/projects/twitch-insight/twitch-insight2.png';
+import twitchInsight3Img from '@/assets/img/projects/twitch-insight/twitch-insight3.png';
+import twitchInsight4Img from '@/assets/img/projects/twitch-insight/twitch-insight4.png';
+import twitchInsight5Img from '@/assets/img/projects/twitch-insight/twitch-insight5.png';
+import twitchInsight6Img from '@/assets/img/projects/twitch-insight/twitch-insight6.png';
+import twitchInsight7Img from '@/assets/img/projects/twitch-insight/twitch-insight7.png';
+import twitchInsight11Img from '@/assets/img/projects/twitch-insight/twitch-insight11.png';
+import inventorySystemImg from '@/assets/img/projects/ims/inventory-system.png';
+import portfolioImg from "@/assets/img/projects/portfolio/portfolio.png";
+import portfolio1Img from "@/assets/img/projects/portfolio/portfolio1.png";
+import portfolio2Img from "@/assets/img/projects/portfolio/portfolio2.png";
+import portfolio3Img from "@/assets/img/projects/portfolio/portfolio3.png";
 
 export const projects = [
   {
