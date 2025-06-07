@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { FaGithub } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import { SiReact, SiTailwindcss, SiMongodb, SiPython, SiFlask, SiPhp, SiMysql, SiJavascript, SiHtml5, SiBootstrap } from 'react-icons/si';
+import { SiReact, SiTailwindcss, SiMongodb, SiPython, SiFlask, SiPhp, SiMysql, SiJavascript, SiHtml5, SiBootstrap, SiCss3 } from 'react-icons/si';
 import twitchInsightImg from '@/assets/img/projects/twitch-insight/twitch-insight.png';
 import twitchInsight1Img from '@/assets/img/projects/twitch-insight/twitch-insight1.png';
 import twitchInsight2Img from '@/assets/img/projects/twitch-insight/twitch-insight2.png';
@@ -16,6 +16,11 @@ import portfolioImg from "@/assets/img/projects/portfolio/portfolio.png";
 import portfolio1Img from "@/assets/img/projects/portfolio/portfolio1.png";
 import portfolio2Img from "@/assets/img/projects/portfolio/portfolio2.png";
 import portfolio3Img from "@/assets/img/projects/portfolio/portfolio3.png";
+import portfolioGf1Img from "@/assets/img/projects/portfolio_gf/1.png";
+import portfolioGf2Img from "@/assets/img/projects/portfolio_gf/2.png";
+import portfolioGf3Img from "@/assets/img/projects/portfolio_gf/3.png";
+import portfolioGf4Img from "@/assets/img/projects/portfolio_gf/4.png";
+import portfolioGf5Img from "@/assets/img/projects/portfolio_gf/5.png";
 
 export const projects = [
   {
@@ -85,6 +90,28 @@ export const projects = [
       portfolio2Img,
       portfolio3Img
     ]
+  },
+  {
+    title: "Portfolio Lovey",
+    description: "An academic portfolio showcasing academic achievements and research work.",
+    details: "A personal project created to showcase academic accomplishments, research papers, and educational journey. Features a clean, professional design with sections for academic background, publications, and research interests.",
+    type: "Personal Project",
+    technologies: [
+      { name: "HTML", icon: SiHtml5, color: "text-[#E34F26]" },
+      { name: "CSS", icon: SiCss3, color: "text-[#1572B6]" },
+      { name: "JavaScript", icon: SiJavascript, color: "text-[#F7DF1E]" },
+    ],
+    links: {
+      github: "https://github.com/bamcortezz/Portfolio-Lovey"
+    },
+    image: portfolioGf1Img,
+    images: [
+      portfolioGf1Img,
+      portfolioGf2Img,
+      portfolioGf3Img,
+      portfolioGf4Img,
+      portfolioGf5Img
+    ]
   }
 ];
 
@@ -128,22 +155,22 @@ const Projects = () => {
         </p>
       </motion.div>
 
-      {/* Projects Grid */}
+      {/* Projects Grid - Modified for 4 containers */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto"
       >
         {projects.map((project, index) => (
           <motion.div
             key={index}
             variants={projectVariants}
-            className="group relative bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700 transition-all duration-300 cursor-pointer hover:border-blue-500/50"
+            className="group relative bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700 transition-all duration-300 cursor-pointer hover:border-blue-500/50 h-[500px]"
             whileHover={{ scale: 1.02 }}
             onClick={() => navigate(`/projects/${project.title.toLowerCase().replace(/\s+/g, '-')}`)}
           >
-            <div className="relative overflow-hidden aspect-video">
+            <div className="relative overflow-hidden h-[250px]">
               <motion.img
                 src={project.image}
                 alt={project.title}
@@ -159,7 +186,7 @@ const Projects = () => {
               </div>
             </div>
             
-            <div className="p-6">
+            <div className="p-6 h-[250px] flex flex-col">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-xl font-bold text-white">
                   {project.title}
@@ -169,11 +196,11 @@ const Projects = () => {
                 </span>
               </div>
               
-              <p className="text-gray-400 text-sm line-clamp-2 mb-4">
+              <p className="text-gray-400 text-sm line-clamp-2 mb-4 flex-grow">
                 {project.description}
               </p>
 
-              <div className="flex flex-wrap gap-2 mb-6">
+              <div className="flex flex-wrap gap-2 mb-4">
                 {project.technologies.map((tech, techIndex) => {
                   const Icon = tech.icon;
                   return (
@@ -188,7 +215,7 @@ const Projects = () => {
                 })}
               </div>
 
-              <div className="flex items-center">
+              <div className="flex items-center mt-auto">
                 <motion.a
                   href={project.links.github}
                   target="_blank"
