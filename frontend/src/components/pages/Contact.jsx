@@ -52,29 +52,49 @@ const Contact = () => {
         message: ''
       });
 
-      // Show success message
-      await Swal.fire({
-        title: 'Success!',
-        text: 'Your message has been sent successfully.',
+      // Show success toast
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      });
+
+      await Toast.fire({
         icon: 'success',
-        confirmButtonText: 'OK',
-        confirmButtonColor: '#3085d6',
+        title: 'Message sent successfully!',
         background: '#1a1a1a',
         color: '#fff',
+        iconColor: '#10B981'
       });
 
     } catch (error) {
       console.error('EmailJS error:', error);
       
-      // Show error message
-      await Swal.fire({
-        title: 'Error!',
-        text: 'Failed to send message. Please try again.',
+      // Show error toast
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      });
+
+      await Toast.fire({
         icon: 'error',
-        confirmButtonText: 'OK',
-        confirmButtonColor: '#d33',
+        title: 'Failed to send message. Please try again.',
         background: '#1a1a1a',
         color: '#fff',
+        iconColor: '#EF4444'
       });
     } finally {
       setIsSubmitting(false);
@@ -116,11 +136,7 @@ const Contact = () => {
           className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-gray-700 space-y-6"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-              className="relative"
-            >
+            <div className="relative">
               <label htmlFor="name" className="block text-gray-300 mb-2">
                 <FaUser className="inline-block mr-2" />
                 Name
@@ -135,13 +151,9 @@ const Contact = () => {
                 className="w-full px-4 py-3 bg-white/5 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors duration-300"
                 placeholder="Your name"
               />
-            </motion.div>
+            </div>
 
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-              className="relative"
-            >
+            <div className="relative">
               <label htmlFor="email" className="block text-gray-300 mb-2">
                 <FaEnvelope className="inline-block mr-2" />
                 Email
@@ -156,14 +168,10 @@ const Contact = () => {
                 className="w-full px-4 py-3 bg-white/5 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors duration-300"
                 placeholder="Your email"
               />
-            </motion.div>
+            </div>
           </div>
 
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
-            className="relative"
-          >
+          <div className="relative">
             <label htmlFor="subject" className="block text-gray-300 mb-2">
               Subject
             </label>
@@ -177,13 +185,9 @@ const Contact = () => {
               className="w-full px-4 py-3 bg-white/5 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors duration-300"
               placeholder="Subject of your message"
             />
-          </motion.div>
+          </div>
 
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
-            className="relative"
-          >
+          <div className="relative">
             <label htmlFor="message" className="block text-gray-300 mb-2">
               Message
             </label>
@@ -197,7 +201,7 @@ const Contact = () => {
               className="w-full px-4 py-3 bg-white/5 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors duration-300 resize-none"
               placeholder="Your message"
             />
-          </motion.div>
+          </div>
 
           <motion.div
             className="w-full"
