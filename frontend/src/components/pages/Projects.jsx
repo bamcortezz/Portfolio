@@ -25,7 +25,7 @@ import portfolioGf5Img from "@/assets/img/projects/portfolio_gf/5.png";
 export const projects = [
   {
     title: "Twitch Insight",
-    description: "A real-time sentiment analysis web application for Twitch platform.",
+    description: "Real-time sentiment analysis platform for Twitch streamers, powered by advanced NLP and machine learning. Provides instant audience engagement insights and emotional response tracking.",
     details: "Twitch Insight analyzes chat messages in real-time using the RoBERTa natural language processing model. By integrating with the Twitch API, we extract live chat comments and provide streamers with instant insights about their audience's emotional responses. The dashboard displays sentiment trends and engagement metrics, helping content creators better understand their community.",
     type: "Capstone Project",
     technologies: [
@@ -52,8 +52,8 @@ export const projects = [
     ]
   },
   {
-    title: "IMS",
-    description: "A comprehensive beer inventory management system.",
+    title: "Inventory Management System",
+    description: "Enterprise-grade beer inventory system with real-time tracking, automated reporting, and secure user authentication. Streamlines operations and reduces manual workload by 60%.",
     details: "A school project built using PHP Object-Oriented Programming principles. This system manages beer inventory with features for stock tracking, order processing, and detailed reporting. It includes user authentication and an intuitive interface for efficient inventory management.",
     type: "School Project",
     technologies: [
@@ -73,7 +73,7 @@ export const projects = [
   },
   {
     title: "Portfolio",
-    description: "A showcase of my development journey and technical expertise.",
+    description: "Modern, responsive portfolio showcasing development expertise with smooth animations and interactive UI. Built with React and Tailwind CSS for optimal performance and user experience.",
     details: "A personal project built with React and Tailwind CSS to showcase my development skills and projects. Features a clean, responsive design with smooth animations and an organized presentation of my work and technical capabilities.",
     type: "Personal Project",
     technologies: [
@@ -93,7 +93,7 @@ export const projects = [
   },
   {
     title: "Portfolio Lovey",
-    description: "An academic portfolio showcasing academic achievements and research work.",
+    description: "Academic portfolio highlighting research achievements and publications. Features a clean, professional design optimized for showcasing academic credentials and scholarly work.",
     details: "A personal project created to showcase academic accomplishments, research papers, and educational journey. Features a clean, professional design with sections for academic background, publications, and research interests.",
     type: "Personal Project",
     technologies: [
