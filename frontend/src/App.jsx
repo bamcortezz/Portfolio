@@ -6,6 +6,7 @@ import Skills from "./components/pages/Skills";
 import Profile from "./components/pages/Profile";
 import Projects from "./components/pages/Projects";
 import ProjectDetails from "./components/pages/ProjectDetails";
+import Contact from "./components/pages/Contact";
 import "./App.css";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/projects/:id" element={<ProjectDetails />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
       </div>
