@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaUser, FaPaperPlane } from 'react-icons/fa';
+import { FaEnvelope, FaUser, FaPaperPlane, FaFacebook, FaLinkedin, FaGithub } from 'react-icons/fa';
 import { ImSpinner8 } from 'react-icons/im';
 import emailjs from '@emailjs/browser';
 import Swal from 'sweetalert2';
@@ -14,6 +14,33 @@ const Contact = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const socialLinks = [
+    {
+      name: 'Facebook',
+      icon: FaFacebook,
+      url: 'https://www.facebook.com/bambam.m.cortez/',
+      iconColor: 'text-blue-500',
+      bgColor: 'bg-blue-500/10',
+      hoverBgColor: 'group-hover:bg-blue-500/20'
+    },
+    {
+      name: 'LinkedIn',
+      icon: FaLinkedin,
+      url: 'https://www.linkedin.com/in/cortez-francis-emil-m-957521369/',
+      iconColor: 'text-blue-600',
+      bgColor: 'bg-blue-600/10',
+      hoverBgColor: 'group-hover:bg-blue-600/20'
+    },
+    {
+      name: 'GitHub',
+      icon: FaGithub,
+      url: 'https://github.com/bamcortezz',
+      iconColor: 'text-gray-400',
+      bgColor: 'bg-gray-400/10',
+      hoverBgColor: 'group-hover:bg-gray-400/20'
+    }
+  ];
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -133,7 +160,7 @@ const Contact = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           onSubmit={handleSubmit}
-          className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-gray-700 space-y-6"
+          className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-gray-700 space-y-6 mb-12"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="relative">
@@ -232,6 +259,33 @@ const Contact = () => {
             </button>
           </motion.div>
         </motion.form>
+
+        {/* Social Media Links - Redesigned */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-4"
+        >
+          {socialLinks.map((link) => (
+            <motion.a
+              key={link.name}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.02, y: -5 }}
+              whileTap={{ scale: 0.98 }}
+              className="group bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-gray-700 hover:border-gray-400 transition-all duration-300"
+            >
+              <div className="flex flex-col items-center text-center">
+                <div className={`w-16 h-16 rounded-full ${link.bgColor} flex items-center justify-center mb-4 ${link.hoverBgColor} transition-colors duration-300`}>
+                  <link.icon className={`text-3xl ${link.iconColor}`} />
+                </div>
+                <h3 className="text-xl font-semibold text-white">{link.name}</h3>
+              </div>
+            </motion.a>
+          ))}
+        </motion.div>
       </motion.div>
     </div>
   );

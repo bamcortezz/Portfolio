@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaFacebook } from 'react-icons/fa';
 import CV from '../../assets/cv/cv.pdf';
 import profileImg from '../../assets/img/Cortez, Francis Emil M..jpg';
 
@@ -73,7 +72,7 @@ const Home = () => {
           </motion.p>
           
           <motion.div 
-            className="pt-4 pb-8 md:pt-6 md:pb-12 flex flex-row gap-4 w-full justify-center md:justify-start"
+            className="pt-4 pb-8 md:pt-6 md:pb-12 flex flex-row gap-4 w-full justify-start"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1.2 }}
@@ -86,18 +85,6 @@ const Home = () => {
               whileTap={{ scale: 0.95 }}
             >
               Download CV
-            </motion.a>
-            
-            <motion.a 
-              href="https://www.facebook.com/bambam.m.cortez/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 bg-transparent border-2 border-white text-white font-medium rounded-lg hover:bg-[#1877F2] hover:border-[#1877F2] transition-colors duration-300 text-sm sm:text-base"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <FaFacebook className="text-xl" />
-              Facebook
             </motion.a>
           </motion.div>
         </motion.div>
