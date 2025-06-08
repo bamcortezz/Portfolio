@@ -92,7 +92,7 @@ export const projects = [
     ]
   },
   {
-    title: "Portfolio Lovey",
+    title: "Portfolio",
     description: "Academic portfolio highlighting research achievements and publications. Features a clean, professional design optimized for showcasing academic credentials and scholarly work.",
     details: "A personal project created to showcase academic accomplishments, research papers, and educational journey. Features a clean, professional design with sections for academic background, publications, and research interests.",
     type: "Personal Project",
