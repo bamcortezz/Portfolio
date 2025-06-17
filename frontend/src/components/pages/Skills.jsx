@@ -12,7 +12,6 @@ import {
   BiLogoBootstrap,
   BiLogoPhp,
   BiLogoNodejs,
-  BiLogoPython,
   BiLogoGit,
   BiLogoMongodb,
   BiLogoDiscord,
@@ -43,7 +42,6 @@ const Skills = () => {
         { name: "MySQL", icon: SiMysql },
         { name: "MongoDB", icon: BiLogoMongodb },
         { name: "Node.js", icon: BiLogoNodejs },
-        { name: "Python", icon: BiLogoPython },
       ]
     },
     {
