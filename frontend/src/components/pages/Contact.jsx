@@ -1,52 +1,57 @@
-import React, { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { FaEnvelope, FaUser, FaPaperPlane, FaFacebook, FaLinkedin, FaGithub } from 'react-icons/fa';
-import { ImSpinner8 } from 'react-icons/im';
-import emailjs from '@emailjs/browser';
-import Swal from 'sweetalert2';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  FaEnvelope,
+  FaUser,
+  FaPaperPlane,
+  FaFacebook,
+  FaLinkedin,
+  FaGithub,
+} from "react-icons/fa";
+import { ImSpinner8 } from "react-icons/im";
+import Swal from "sweetalert2";
 
 const Contact = () => {
-  const form = useRef();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const socialLinks = [
     {
-      name: 'Facebook',
+      name: "Facebook",
       icon: FaFacebook,
-      url: 'https://www.facebook.com/bambam.m.cortez/',
-      iconColor: 'text-blue-500',
-      bgColor: 'bg-blue-500/10',
-      hoverBgColor: 'group-hover:bg-blue-500/20'
+      url: "https://www.facebook.com/bambam.m.cortez/",
+      iconColor: "text-blue-500",
+      bgColor: "bg-blue-500/10",
+      hoverBgColor: "group-hover:bg-blue-500/20",
     },
     {
-      name: 'LinkedIn',
+      name: "LinkedIn",
       icon: FaLinkedin,
-      url: 'https://www.linkedin.com/in/cortez-francis-emil-m-957521369/',
-      iconColor: 'text-blue-600',
-      bgColor: 'bg-blue-600/10',
-      hoverBgColor: 'group-hover:bg-blue-600/20'
+      url: "https://www.linkedin.com/in/cortez-francis-emil-m-957521369/",
+      iconColor: "text-blue-600",
+      bgColor: "bg-blue-600/10",
+      hoverBgColor: "group-hover:bg-blue-600/20",
     },
     {
-      name: 'GitHub',
+      name: "GitHub",
       icon: FaGithub,
-      url: 'https://github.com/bamcortezz',
-      iconColor: 'text-gray-400',
-      bgColor: 'bg-gray-400/10',
-      hoverBgColor: 'group-hover:bg-gray-400/20'
-    }
+      url: "https://github.com/bamcortezz",
+      iconColor: "text-gray-400",
+      bgColor: "bg-gray-400/10",
+      hoverBgColor: "group-hover:bg-gray-400/20",
+    },
   ];
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -55,73 +60,76 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        subject: formData.subject,
-        message: formData.message,
-        to_name: 'Francis',
-        reply_to: formData.email,
-      };
-
-      await emailjs.send(
-        'service_qy0x57g',
-        'template_w309kkg',
-        templateParams,
-        'b8MsefOsZOyLijncV'
-      );
-
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: `From: ${formData.email}\n\n${formData.message}`,
+        }),
       });
 
-      // Show success toast
-      const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer)
-          toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
-      });
+      const result = await response.json();
 
-      await Toast.fire({
-        icon: 'success',
-        title: 'Message sent successfully!',
-        background: '#1a1a1a',
-        color: '#fff',
-        iconColor: '#10B981'
-      });
+      if (result.success) {
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
 
+        // Show success toast
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+
+        await Toast.fire({
+          icon: "success",
+          title: "Message sent successfully!",
+          background: "#1a1a1a",
+          color: "#fff",
+          iconColor: "#10B981",
+        });
+      } else {
+        throw new Error(result.message || "Failed to send message");
+      }
     } catch (error) {
-      console.error('EmailJS error:', error);
-      
+      console.error("Web3Forms error:", error);
+
       // Show error toast
       const Toast = Swal.mixin({
         toast: true,
-        position: 'top-end',
+        position: "top-end",
         showConfirmButton: false,
         timer: 3000,
         timerProgressBar: true,
         didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer)
-          toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
+          toast.addEventListener("mouseenter", Swal.stopTimer);
+          toast.addEventListener("mouseleave", Swal.resumeTimer);
+        },
       });
 
       await Toast.fire({
-        icon: 'error',
-        title: 'Failed to send message. Please try again.',
-        background: '#1a1a1a',
-        color: '#fff',
-        iconColor: '#EF4444'
+        icon: "error",
+        title: "Failed to send message. Please try again.",
+        background: "#1a1a1a",
+        color: "#fff",
+        iconColor: "#EF4444",
       });
     } finally {
       setIsSubmitting(false);
@@ -134,7 +142,7 @@ const Contact = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="max-w-3xl mx-auto"
+        className="max-w-5xl mx-auto"
       >
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -155,7 +163,6 @@ const Contact = () => {
         </motion.p>
 
         <motion.form
-          ref={form}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -241,8 +248,8 @@ const Contact = () => {
               disabled={isSubmitting}
               className={`w-full inline-flex items-center justify-center gap-2 px-8 py-3 font-medium rounded-lg transition-colors duration-300 ${
                 isSubmitting
-                  ? 'bg-gray-500 cursor-not-allowed'
-                  : 'bg-white text-black hover:bg-gray-200'
+                  ? "bg-gray-500 cursor-not-allowed"
+                  : "bg-white text-black hover:bg-gray-200"
               }`}
             >
               {isSubmitting ? (
@@ -278,10 +285,14 @@ const Contact = () => {
               className="group bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-gray-700 hover:border-gray-400 transition-all duration-300"
             >
               <div className="flex flex-col items-center text-center">
-                <div className={`w-16 h-16 rounded-full ${link.bgColor} flex items-center justify-center mb-4 ${link.hoverBgColor} transition-colors duration-300`}>
+                <div
+                  className={`w-16 h-16 rounded-full ${link.bgColor} flex items-center justify-center mb-4 ${link.hoverBgColor} transition-colors duration-300`}
+                >
                   <link.icon className={`text-3xl ${link.iconColor}`} />
                 </div>
-                <h3 className="text-xl font-semibold text-white">{link.name}</h3>
+                <h3 className="text-xl font-semibold text-white">
+                  {link.name}
+                </h3>
               </div>
             </motion.a>
           ))}

@@ -4,25 +4,50 @@
   color: #ffffff;
 }
 
+/* Scroll container */
+.scroll-container {
+  scroll-behavior: smooth;
+}
+
+/* Each section takes at least full viewport height */
+.scroll-container section {
+  min-height: 100vh;
+  scroll-margin-top: 4rem; /* Account for fixed navbar */
+}
+
+/* Section divider styling */
+.section-divider {
+  border: none;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  margin: 0;
+  width: 100%;
+}
+
 /* Add padding to account for fixed navbar */
 main {
-  padding-top: 4rem; /* 64px */
-  max-width: 1280px; /* max-w-7xl */
+  padding-top: 0; /* Remove top padding since sections handle their own spacing */
+  max-width: 100%; /* Full width for sections */
   margin: 0 auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 @media (min-width: 640px) {
   main {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
 @media (min-width: 1024px) {
   main {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 0;
+    padding-right: 0;
   }
-} 
+}

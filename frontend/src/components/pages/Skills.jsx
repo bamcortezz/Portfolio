@@ -1,9 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { 
-  AiFillHtml5,
-  AiFillGithub,
-} from 'react-icons/ai';
+import React from "react";
+import { motion } from "framer-motion";
+import { AiFillHtml5, AiFillGithub } from "react-icons/ai";
 import {
   BiLogoCss3,
   BiLogoJavascript,
@@ -16,11 +13,8 @@ import {
   BiLogoMongodb,
   BiLogoDiscord,
   BiLogoTrello,
-} from 'react-icons/bi';
-import {
-  SiMysql,
-} from 'react-icons/si';
-
+} from "react-icons/bi";
+import { SiMysql } from "react-icons/si";
 
 const Skills = () => {
   const techStack = [
@@ -33,7 +27,7 @@ const Skills = () => {
         { name: "React", icon: BiLogoReact },
         { name: "Tailwind CSS", icon: BiLogoTailwindCss },
         { name: "Bootstrap", icon: BiLogoBootstrap },
-      ]
+      ],
     },
     {
       category: "Backend Development",
@@ -42,7 +36,7 @@ const Skills = () => {
         { name: "MySQL", icon: SiMysql },
         { name: "MongoDB", icon: BiLogoMongodb },
         { name: "Node.js", icon: BiLogoNodejs },
-      ]
+      ],
     },
     {
       category: "Others",
@@ -51,8 +45,8 @@ const Skills = () => {
         { name: "GitHub", icon: AiFillGithub },
         { name: "Discord", icon: BiLogoDiscord },
         { name: "Trello", icon: BiLogoTrello },
-      ]
-    }
+      ],
+    },
   ];
 
   const containerVariants = {
@@ -60,9 +54,9 @@ const Skills = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3
-      }
-    }
+        staggerChildren: 0.3,
+      },
+    },
   };
 
   const categoryVariants = {
@@ -72,9 +66,9 @@ const Skills = () => {
       y: 0,
       transition: {
         duration: 0.5,
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const techVariants = {
@@ -82,49 +76,44 @@ const Skills = () => {
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.3 }
-    }
+      transition: { duration: 0.3 },
+    },
   };
 
   return (
-    <motion.div 
+    <motion.div
       className="min-h-[calc(100vh-4rem)] px-4 md:px-8 lg:px-16 py-16"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
-      <div className="max-w-7xl mx-auto">
-        <motion.div 
-          className="text-center mb-16"
-          variants={categoryVariants}
-        >
-          <motion.h1 
+      <div className="max-w-5xl mx-auto">
+        <motion.div className="text-center mb-16" variants={categoryVariants}>
+          <motion.h1
             className="text-4xl md:text-5xl font-bold text-white mb-6"
             variants={categoryVariants}
           >
             Tech Stack
           </motion.h1>
-          <motion.p 
+          <motion.p
             className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed"
             variants={categoryVariants}
           >
-            These are the technologies I've worked with throughout my journey as a web developer. 
-            With deep knowledge of full-stack web systems, I specialize in building responsive and dynamic applications 
-            that deliver exceptional user experiences.
+            These are the technologies I've worked with throughout my journey as
+            a web developer. With deep knowledge of full-stack web systems, I
+            specialize in building responsive and dynamic applications that
+            deliver exceptional user experiences.
           </motion.p>
         </motion.div>
 
-        <motion.div 
-          className="space-y-12"
-          variants={containerVariants}
-        >
+        <motion.div className="space-y-12" variants={containerVariants}>
           {techStack.map((category, index) => (
-            <motion.div 
-              key={index} 
+            <motion.div
+              key={index}
               className="space-y-6"
               variants={categoryVariants}
             >
-              <motion.h2 
+              <motion.h2
                 className="text-2xl font-semibold text-white border-b border-gray-700 pb-4"
                 variants={categoryVariants}
               >
@@ -137,9 +126,9 @@ const Skills = () => {
                     key={techIndex}
                     className="p-4 rounded-lg border border-gray-700 hover:bg-white/5 transition-all duration-300 backdrop-blur-sm flex items-center justify-center gap-2"
                     variants={techVariants}
-                    whileHover={{ 
+                    whileHover={{
                       scale: 1.05,
-                      boxShadow: "0 0 20px rgba(255,255,255,0.1)"
+                      boxShadow: "0 0 20px rgba(255,255,255,0.1)",
                     }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -158,4 +147,4 @@ const Skills = () => {
   );
 };
 
-export default Skills; 
+export default Skills;
