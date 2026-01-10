@@ -29,11 +29,9 @@ import portfolioImg from "@/assets/img/projects/portfolio/portfolio.png";
 import portfolio1Img from "@/assets/img/projects/portfolio/portfolio1.png";
 import portfolio2Img from "@/assets/img/projects/portfolio/portfolio2.png";
 import portfolio3Img from "@/assets/img/projects/portfolio/portfolio3.png";
-import portfolioGf1Img from "@/assets/img/projects/portfolio_gf/1.png";
-import portfolioGf2Img from "@/assets/img/projects/portfolio_gf/2.png";
-import portfolioGf3Img from "@/assets/img/projects/portfolio_gf/3.png";
-import portfolioGf4Img from "@/assets/img/projects/portfolio_gf/4.png";
-import portfolioGf5Img from "@/assets/img/projects/portfolio_gf/5.png";
+import portfolio4Img from "@/assets/img/projects/portfolio/portfolio4.png";
+import portfolio5Img from "@/assets/img/projects/portfolio/portfolio5.png";
+import portfolio6Img from "@/assets/img/projects/portfolio/portfolio6.png";
 
 export const projects = [
   {
@@ -101,30 +99,14 @@ export const projects = [
       github: "https://github.com/bamcortezz/Portfolio",
     },
     image: portfolioImg,
-    images: [portfolioImg, portfolio1Img, portfolio2Img, portfolio3Img],
-  },
-  {
-    title: "Portfolio 2",
-    description:
-      "Academic portfolio highlighting research achievements and publications. Features a clean, professional design optimized for showcasing academic credentials and scholarly work.",
-    details:
-      "A personal project created to showcase academic accomplishments, research papers, and educational journey. Features a clean, professional design with sections for academic background, publications, and research interests.",
-    type: "Personal Project",
-    technologies: [
-      { name: "HTML", icon: SiHtml5, color: "text-[#E34F26]" },
-      { name: "CSS", icon: SiCss3, color: "text-[#1572B6]" },
-      { name: "JavaScript", icon: SiJavascript, color: "text-[#F7DF1E]" },
-    ],
-    links: {
-      github: "https://github.com/bamcortezz/Portfolio-Lovey",
-    },
-    image: portfolioGf1Img,
     images: [
-      portfolioGf1Img,
-      portfolioGf2Img,
-      portfolioGf3Img,
-      portfolioGf4Img,
-      portfolioGf5Img,
+      portfolioImg,
+      portfolio1Img,
+      portfolio2Img,
+      portfolio3Img,
+      portfolio4Img,
+      portfolio5Img,
+      portfolio6Img,
     ],
   },
 ];
@@ -178,12 +160,12 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        {/* Projects Grid - Modified for 4 containers */}
+        {/* Projects Grid - 3 columns layout */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
         >
           {projects.map((project, index) => (
             <motion.div

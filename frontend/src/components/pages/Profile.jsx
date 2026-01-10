@@ -83,15 +83,29 @@ const Profile = () => {
               <div className="text-gray-400 leading-relaxed space-y-6">
                 <div>
                   <h3 className="text-white font-medium text-lg">
-                    Don Honorio Ventura State University
+                    Pampanga State University
                   </h3>
                   <p className="text-gray-400 mt-1">
                     Bachelor of Science in Information Technology
                   </p>
-                  <p className="text-gray-400">
-                    Currently studying - AY: 2024 - 2025
+                  <p className="text-gray-400">2022 - Present</p>
+                  <p className="text-gray-400 italic">
+                    Cabambangan, Bacolor, Pampanga
                   </p>
-                  <p className="text-gray-400 italic">Bacolor, Pampanga</p>
+                  <div className="mt-3">
+                    <p className="text-white font-medium mb-1">
+                      Awards and Recognitions:
+                    </p>
+                    <ul className="list-disc list-inside ml-2 space-y-1">
+                      <li>Dean's List (1st Semester 2022-2023)</li>
+                      <li>Dean's List (1st Semester 2023-2024)</li>
+                      <li>President's List (A.Y. 2024-2025)</li>
+                      <li>
+                        Rank 09 Overall in College of Computing Studies (1st
+                        Semester 2025-2026)
+                      </li>
+                    </ul>
+                  </div>
                 </div>
 
                 <div>
@@ -101,21 +115,7 @@ const Profile = () => {
                   <p className="text-gray-400 mt-1">
                     Science, Technology, Engineering, and Mathematics
                   </p>
-                  <p className="text-gray-400">
-                    Senior High School | Batch 2022
-                  </p>
-                  <p className="text-gray-400 italic">
-                    Sta Monica, San Simon, Pampanga
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-white font-medium text-lg">
-                    Assumpta Technical High School
-                  </h3>
-                  <p className="text-gray-400 mt-1">
-                    Junior High School | Batch 2016
-                  </p>
+                  <p className="text-gray-400">2016 - 2022</p>
                   <p className="text-gray-400 italic">
                     Sta Monica, San Simon, Pampanga
                   </p>
@@ -155,32 +155,47 @@ const Profile = () => {
             >
               <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
                 <FaTrophy className="text-3xl text-white" />
-                Achievements
+                Certifications
               </h2>
-              <div className="text-gray-400 leading-relaxed space-y-3">
+              <div className="text-gray-400 leading-relaxed space-y-4">
                 <div className="space-y-2">
-                  <h3 className="text-white font-medium">
-                    Academic Excellence
-                  </h3>
-                  <ul className="list-disc list-inside ml-2 space-y-1">
-                    <li>Dean's List (1st Semester 2022-2023)</li>
-                    <li>Dean's List (1st Semester 2023-2024)</li>
-                    <li>President's List (1st Semester 2024-2025)</li>
+                  <h3 className="text-white font-medium">IBM Skill Build</h3>
+                  <p className="text-gray-300 ml-2">
+                    Cloud Computing Fundamentals
+                  </p>
+                  <ul className="list-disc list-inside ml-6 space-y-1 text-sm">
+                    <li>Introduction to Cloud Computing</li>
+                    <li>Understanding Cloud Computing Services</li>
+                    <li>Understanding Cloud Deployment Modes</li>
+                    <li>Virtualization on the Cloud</li>
+                    <li>Developing and Deploying Software in the Cloud</li>
+                    <li>
+                      Introduction to Data Management and Security in Cloud
+                    </li>
                   </ul>
                 </div>
 
                 <div className="space-y-2">
-                  <h3 className="text-white font-medium">Certifications</h3>
+                  <h3 className="text-white font-medium">
+                    Cisco Networking Academy
+                  </h3>
                   <ul className="list-disc list-inside ml-2 space-y-1">
-                    <li>Basic Bookkeeping Course (January 2024)</li>
-                    <li>Introduction to CSS (January 2025)</li>
-                    <li>
-                      Installing and Configuring Computer Systems (January 2025)
-                    </li>
-                    <li>
-                      Introduction to IoT and Digital Transformation (March
-                      2025)
-                    </li>
+                    <li>Introduction to IoT and Digital Transformation</li>
+                    <li>JavaScript Essentials 1</li>
+                  </ul>
+                </div>
+
+                <div className="space-y-2">
+                  <h3 className="text-white font-medium">
+                    TESDA Online Course
+                  </h3>
+                  <p className="text-gray-300 ml-2">
+                    Computer System Servicing NCII
+                  </p>
+                  <ul className="list-disc list-inside ml-6 space-y-1 text-sm">
+                    <li>Introduction to CSS</li>
+                    <li>Installing and Configuring Computer Systems</li>
+                    <li>Setting Up Computer Networks</li>
                   </ul>
                 </div>
               </div>
