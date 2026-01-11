@@ -1,7 +1,7 @@
-import React from "react";
 import { motion } from "framer-motion";
 import CV from "../../assets/cv/cv.pdf";
 import profileImg from "../../assets/img/Cortez, Francis Emil M..jpg";
+import LazyImage from "../common/LazyImage";
 
 const Home = () => {
   return (
@@ -19,7 +19,7 @@ const Home = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            <img
+            <LazyImage
               src={profileImg}
               alt="Profile"
               className="rounded-full object-cover w-full h-full shadow-2xl"

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import {
   FaEnvelope,
@@ -47,45 +47,72 @@ const Contact = () => {
     },
   ];
 
-  const handleChange = (e) => {
+  const handleChange = useCallback((e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
       [name]: value,
     }));
-  };
+  }, []);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  const handleSubmit = useCallback(
+    async (e) => {
+      e.preventDefault();
+      setIsSubmitting(true);
 
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: `From: ${formData.email}\n\n${formData.message}`,
-        }),
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
-        setFormData({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+            name: formData.name,
+            email: formData.email,
+            subject: formData.subject,
+            message: `From: ${formData.email}\n\n${formData.message}`,
+          }),
         });
 
-        // Show success toast
+        const result = await response.json();
+
+        if (result.success) {
+          setFormData({
+            name: "",
+            email: "",
+            subject: "",
+            message: "",
+          });
+
+          // Show success toast
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener("mouseenter", Swal.stopTimer);
+              toast.addEventListener("mouseleave", Swal.resumeTimer);
+            },
+          });
+
+          await Toast.fire({
+            icon: "success",
+            title: "Message sent successfully!",
+            background: "#1a1a1a",
+            color: "#fff",
+            iconColor: "#10B981",
+          });
+        } else {
+          throw new Error(result.message || "Failed to send message");
+        }
+      } catch (error) {
+        console.error("Web3Forms error:", error);
+
+        // Show error toast
         const Toast = Swal.mixin({
           toast: true,
           position: "top-end",
@@ -99,42 +126,18 @@ const Contact = () => {
         });
 
         await Toast.fire({
-          icon: "success",
-          title: "Message sent successfully!",
+          icon: "error",
+          title: "Failed to send message. Please try again.",
           background: "#1a1a1a",
           color: "#fff",
-          iconColor: "#10B981",
+          iconColor: "#EF4444",
         });
-      } else {
-        throw new Error(result.message || "Failed to send message");
+      } finally {
+        setIsSubmitting(false);
       }
-    } catch (error) {
-      console.error("Web3Forms error:", error);
-
-      // Show error toast
-      const Toast = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.addEventListener("mouseenter", Swal.stopTimer);
-          toast.addEventListener("mouseleave", Swal.resumeTimer);
-        },
-      });
-
-      await Toast.fire({
-        icon: "error",
-        title: "Failed to send message. Please try again.",
-        background: "#1a1a1a",
-        color: "#fff",
-        iconColor: "#EF4444",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+    },
+    [formData]
+  );
 
   return (
     <div className="min-h-[calc(100vh-4rem)] px-4 md:px-8 lg:px-16 py-16">

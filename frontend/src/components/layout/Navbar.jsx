@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,11 +32,11 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMenu = () => {
+  const toggleMenu = useCallback(() => {
     setIsOpen(!isOpen);
-  };
+  }, [isOpen]);
 
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = useCallback((sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       const offsetTop = element.offsetTop - 64; // Account for navbar height
@@ -46,7 +46,7 @@ const Navbar = () => {
       });
       setIsOpen(false);
     }
-  };
+  }, []);
 
   const navLinks = [
     { id: "home", label: "Home" },

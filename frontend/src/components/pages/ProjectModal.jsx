@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, memo } from "react";
+import PropTypes from "prop-types";
 import { motion, AnimatePresence } from "framer-motion";
+import LazyImage from "../common/LazyImage";
 import {
   FaTimes,
   FaGithub,
@@ -9,8 +11,30 @@ import {
   FaChevronRight,
 } from "react-icons/fa";
 
-const ProjectModal = ({ project, isOpen, onClose }) => {
+const ProjectModal = memo(({ project, isOpen, onClose }) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+
+  const handleImageClick = useCallback((index) => {
+    setSelectedImageIndex(index);
+  }, []);
+
+  const handleBackToModal = useCallback(() => {
+    setSelectedImageIndex(null);
+  }, []);
+
+  const handleNextImage = useCallback(() => {
+    if (project?.images && selectedImageIndex !== null) {
+      setSelectedImageIndex((selectedImageIndex + 1) % project.images.length);
+    }
+  }, [project?.images, selectedImageIndex]);
+
+  const handlePrevImage = useCallback(() => {
+    if (project?.images && selectedImageIndex !== null) {
+      setSelectedImageIndex(
+        (selectedImageIndex - 1 + project.images.length) % project.images.length
+      );
+    }
+  }, [project?.images, selectedImageIndex]);
 
   useEffect(() => {
     if (isOpen) {
@@ -30,28 +54,6 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
   }, [isOpen]);
 
   if (!project) return null;
-
-  const handleImageClick = (index) => {
-    setSelectedImageIndex(index);
-  };
-
-  const handleBackToModal = () => {
-    setSelectedImageIndex(null);
-  };
-
-  const handleNextImage = () => {
-    if (project.images && selectedImageIndex !== null) {
-      setSelectedImageIndex((selectedImageIndex + 1) % project.images.length);
-    }
-  };
-
-  const handlePrevImage = () => {
-    if (project.images && selectedImageIndex !== null) {
-      setSelectedImageIndex(
-        (selectedImageIndex - 1 + project.images.length) % project.images.length
-      );
-    }
-  };
 
   return (
     <AnimatePresence>
@@ -121,7 +123,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
               </div>
 
               {/* Fullscreen Image */}
-              <img
+              <LazyImage
                 src={project.images[selectedImageIndex]}
                 alt={project.title}
                 className="max-w-[95vw] max-h-[95vh] object-contain rounded-lg shadow-2xl"
@@ -162,7 +164,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                             className="relative overflow-hidden rounded-lg cursor-pointer"
                             onClick={() => handleImageClick(index)}
                           >
-                            <img
+                            <LazyImage
                               src={img}
                               alt={`${project.title} screenshot ${index + 1}`}
                               className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
@@ -259,6 +261,32 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
       )}
     </AnimatePresence>
   );
+});
+
+ProjectModal.displayName = "ProjectModal";
+
+ProjectModal.propTypes = {
+  project: PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string,
+    details: PropTypes.string,
+    type: PropTypes.string,
+    technologies: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string,
+        icon: PropTypes.elementType,
+        color: PropTypes.string,
+      })
+    ),
+    links: PropTypes.shape({
+      github: PropTypes.string,
+      live: PropTypes.string,
+    }),
+    image: PropTypes.string,
+    images: PropTypes.arrayOf(PropTypes.string),
+  }),
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default ProjectModal;

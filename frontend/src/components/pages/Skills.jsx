@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { AiFillHtml5, AiFillGithub } from "react-icons/ai";
 import {
