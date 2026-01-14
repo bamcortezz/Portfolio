@@ -188,7 +188,7 @@ const ProjectDetails = () => {
           <div>
             <section className="bg-white/5 rounded-xl p-6 md:p-8">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6">
-                Technologies
+                Tech Stack
               </h2>
               <div className="flex flex-wrap gap-3">
                 {project.technologies.map((tech, index) => {

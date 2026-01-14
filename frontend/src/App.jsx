@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -44,6 +44,11 @@ const LandingPage = () => (
 function AppContent() {
   const location = useLocation();
   const isProjectDetailPage = location.pathname.startsWith("/project/");
+
+  // Reset scroll position to top on route change
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [location.pathname]);
 
   return (
     <div className="app">
