@@ -1,22 +1,16 @@
-import { useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 import LazyImage from "../common/LazyImage";
-import ProjectModal from "./ProjectModal";
 import { projects } from "../../data/projectsData";
 
 const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
 
-  const handleProjectClick = useCallback((project) => {
-    setSelectedProject(project);
-    setIsModalOpen(true);
-  }, []);
-
-  const handleCloseModal = useCallback(() => {
-    setIsModalOpen(false);
-  }, []);
+  const handleProjectClick = (project) => {
+    const projectSlug = project.title.toLowerCase().replace(/\s+/g, "-");
+    navigate(`/project/${projectSlug}`);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -137,12 +131,6 @@ const Projects = () => {
           ))}
         </motion.div>
       </div>
-
-      <ProjectModal
-        project={selectedProject}
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-      />
     </>
   );
 };

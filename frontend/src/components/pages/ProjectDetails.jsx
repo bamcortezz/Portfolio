@@ -1,19 +1,39 @@
-import { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaArrowLeft, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import { projects } from './Projects';
+import { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  FaGithub,
+  FaExternalLinkAlt,
+  FaArrowLeft,
+  FaChevronLeft,
+  FaChevronRight,
+} from "react-icons/fa";
+import { projects } from "../../data/projectsData";
+import LazyImage from "../common/LazyImage";
 
 const ProjectDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const project = projects.find((p) => p.title.toLowerCase().replace(/\s+/g, '-') === id);
+  const project = projects.find(
+    (p) => p.title.toLowerCase().replace(/\s+/g, "-") === id
+  );
 
   if (!project) {
     return (
-      <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center">
-        <h1 className="text-2xl text-white">Project not found</h1>
+      <div className="min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center px-4">
+        <h1 className="text-2xl md:text-3xl text-white mb-4">
+          Project not found
+        </h1>
+        <motion.button
+          onClick={() => navigate("/")}
+          className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-300"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <FaArrowLeft className="w-4 h-4" />
+          <span>Back to Home</span>
+        </motion.button>
       </div>
     );
   }
@@ -23,7 +43,9 @@ const ProjectDetails = () => {
   };
 
   const previousImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + project.images.length) % project.images.length);
+    setCurrentImageIndex(
+      (prev) => (prev - 1 + project.images.length) % project.images.length
+    );
   };
 
   return (
@@ -35,29 +57,33 @@ const ProjectDetails = () => {
         className="max-w-6xl mx-auto"
       >
         <motion.button
-          onClick={() => navigate('/projects')}
+          onClick={() => navigate("/")}
           className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-300 mb-6 md:mb-10 group"
           whileHover={{ x: -4 }}
           whileTap={{ scale: 0.95 }}
         >
           <FaArrowLeft className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" />
-          <span>Back to Projects</span>
+          <span>Back to Home</span>
         </motion.button>
 
         {/* Hero Section */}
         <div className="mb-8 md:mb-16">
           <div className="relative aspect-[4/3] md:aspect-video rounded-xl overflow-hidden mb-6 md:mb-10 bg-white/5 shadow-lg">
             <AnimatePresence mode="wait">
-              <motion.img
+              <motion.div
                 key={currentImageIndex}
-                src={project.images[currentImageIndex]}
-                alt={`${project.title} screenshot ${currentImageIndex + 1}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full"
                 initial={{ opacity: 0, scale: 1.1 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
-              />
+              >
+                <LazyImage
+                  src={project.images[currentImageIndex]}
+                  alt={`${project.title} screenshot ${currentImageIndex + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
             </AnimatePresence>
 
             {project.images.length > 1 && (
@@ -81,9 +107,9 @@ const ProjectDetails = () => {
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
                       className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
-                        index === currentImageIndex 
-                          ? 'bg-white scale-110' 
-                          : 'bg-white/50 hover:bg-white/75'
+                        index === currentImageIndex
+                          ? "bg-white scale-110"
+                          : "bg-white/50 hover:bg-white/75"
                       }`}
                     />
                   ))}
@@ -134,7 +160,9 @@ const ProjectDetails = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           <div className="md:col-span-2 space-y-6 md:space-y-8">
             <section className="bg-white/5 rounded-xl p-6 md:p-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6">Overview</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6">
+                Overview
+              </h2>
               <p className="text-gray-300 leading-relaxed text-base md:text-lg mb-6">
                 {project.description}
               </p>
@@ -145,7 +173,9 @@ const ProjectDetails = () => {
 
             {project.features && (
               <section className="bg-white/5 rounded-xl p-6 md:p-8">
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6">Key Features</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6">
+                  Key Features
+                </h2>
                 <ul className="list-disc list-inside text-gray-300 space-y-3 text-base md:text-lg">
                   {project.features.map((feature, index) => (
                     <li key={index}>{feature}</li>
@@ -157,7 +187,9 @@ const ProjectDetails = () => {
 
           <div>
             <section className="bg-white/5 rounded-xl p-6 md:p-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6">Technologies</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6">
+                Technologies
+              </h2>
               <div className="flex flex-wrap gap-3">
                 {project.technologies.map((tech, index) => {
                   const Icon = tech.icon;
@@ -180,4 +212,4 @@ const ProjectDetails = () => {
   );
 };
 
-export default ProjectDetails; 
+export default ProjectDetails;

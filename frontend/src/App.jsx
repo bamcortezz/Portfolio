@@ -1,4 +1,10 @@
 import { lazy, Suspense } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import "./App.css";
 
@@ -8,11 +14,40 @@ const Skills = lazy(() => import("./components/pages/Skills"));
 const Profile = lazy(() => import("./components/pages/Profile"));
 const Projects = lazy(() => import("./components/pages/Projects"));
 const Contact = lazy(() => import("./components/pages/Contact"));
+const ProjectDetails = lazy(() => import("./components/pages/ProjectDetails"));
 
-function App() {
+// Main landing page with all sections
+const LandingPage = () => (
+  <main className="scroll-container">
+    <section id="home">
+      <Home />
+    </section>
+    <hr className="section-divider" />
+    <section id="about">
+      <Profile />
+    </section>
+    <hr className="section-divider" />
+    <section id="skills">
+      <Skills />
+    </section>
+    <hr className="section-divider" />
+    <section id="projects">
+      <Projects />
+    </section>
+    <hr className="section-divider" />
+    <section id="contact">
+      <Contact />
+    </section>
+  </main>
+);
+
+function AppContent() {
+  const location = useLocation();
+  const isProjectDetailPage = location.pathname.startsWith("/project/");
+
   return (
     <div className="app">
-      <Navbar />
+      {!isProjectDetailPage && <Navbar />}
       <Suspense
         fallback={
           <div className="flex items-center justify-center min-h-screen">
@@ -20,29 +55,20 @@ function App() {
           </div>
         }
       >
-        <main className="scroll-container">
-          <section id="home">
-            <Home />
-          </section>
-          <hr className="section-divider" />
-          <section id="about">
-            <Profile />
-          </section>
-          <hr className="section-divider" />
-          <section id="skills">
-            <Skills />
-          </section>
-          <hr className="section-divider" />
-          <section id="projects">
-            <Projects />
-          </section>
-          <hr className="section-divider" />
-          <section id="contact">
-            <Contact />
-          </section>
-        </main>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/project/:id" element={<ProjectDetails />} />
+        </Routes>
       </Suspense>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
   );
 }
 
