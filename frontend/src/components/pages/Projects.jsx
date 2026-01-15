@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import LazyImage from "../common/LazyImage";
 import { projects } from "../../data/projectsData";
 
@@ -112,7 +112,7 @@ const Projects = () => {
                   })}
                 </div>
 
-                <div className="flex items-center mt-auto">
+                <div className="flex items-center gap-2 mt-auto">
                   <motion.a
                     href={project.links.github}
                     target="_blank"
@@ -125,6 +125,20 @@ const Projects = () => {
                     <FaGithub className="w-4 h-4" />
                     <span className="text-sm">View Code</span>
                   </motion.a>
+                  {project.links.live && (
+                    <motion.a
+                      href={project.links.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-300"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <FaExternalLinkAlt className="w-3 h-3" />
+                      <span className="text-sm">Live Demo</span>
+                    </motion.a>
+                  )}
                 </div>
               </div>
             </motion.div>

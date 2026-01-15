@@ -9,6 +9,7 @@ import {
   SiJavascript,
   SiHtml5,
   SiBootstrap,
+  SiChartdotjs,
 } from "react-icons/si";
 import twitchInsightImg from "@/assets/img/projects/twitch-insight/twitch-insight.png";
 import twitchInsight1Img from "@/assets/img/projects/twitch-insight/twitch-insight1.png";
@@ -19,7 +20,12 @@ import twitchInsight5Img from "@/assets/img/projects/twitch-insight/twitch-insig
 import twitchInsight6Img from "@/assets/img/projects/twitch-insight/twitch-insight6.png";
 import twitchInsight7Img from "@/assets/img/projects/twitch-insight/twitch-insight7.png";
 import twitchInsight11Img from "@/assets/img/projects/twitch-insight/twitch-insight11.png";
-import inventorySystemImg from "@/assets/img/projects/ims/inventory-system.png";
+import budgetTracker1Img from "@/assets/img/projects/budget-tracker/budget-tracker1.png";
+import budgetTracker2Img from "@/assets/img/projects/budget-tracker/budget-tracker2.png";
+import budgetTracker3Img from "@/assets/img/projects/budget-tracker/budget-tracker3.png";
+import budgetTracker4Img from "@/assets/img/projects/budget-tracker/budget-tracker4.png";
+import budgetTracker5Img from "@/assets/img/projects/budget-tracker/budget-tracker5.png";
+import budgetTracker6Img from "@/assets/img/projects/budget-tracker/budget-tracker6.png";
 import portfolioImg from "@/assets/img/projects/portfolio/portfolio.png";
 import portfolio1Img from "@/assets/img/projects/portfolio/portfolio1.png";
 import portfolio2Img from "@/assets/img/projects/portfolio/portfolio2.png";
@@ -60,24 +66,31 @@ export const projects = [
     ],
   },
   {
-    title: "Inventory Management System",
+    title: "Budget Tracker",
     description:
-      "Enterprise-grade beer inventory system with real-time tracking, automated reporting, and secure user authentication. Streamlines operations and reduces manual workload by 60%.",
+      "Modern expense tracking application with intuitive UI for managing personal finances. Track income, expenses, and visualize spending patterns with interactive charts and insights.",
     details:
-      "A school project built using PHP Object-Oriented Programming principles. This system manages beer inventory with features for stock tracking, order processing, and detailed reporting. It includes user authentication and an intuitive interface for efficient inventory management.",
-    type: "School Project",
+      "A personal finance management application built with PHP and MySQL using MVC (Model-View-Controller) architecture and Object-Oriented Programming principles. Features include transaction management, category-based expense tracking, data visualization with Chart.js, and budget goal setting. The app provides a clean, user-friendly interface styled with Tailwind CSS for monitoring financial health and making informed spending decisions.",
+    type: "Personal Project",
     technologies: [
       { name: "PHP", icon: SiPhp, color: "text-[#777BB4]" },
-      { name: "JavaScript", icon: SiJavascript, color: "text-[#F7DF1E]" },
-      { name: "HTML", icon: SiHtml5, color: "text-[#E34F26]" },
       { name: "MySQL", icon: SiMysql, color: "text-[#4479A1]" },
-      { name: "Bootstrap", icon: SiBootstrap, color: "text-[#7952B3]" },
+      { name: "Tailwind", icon: SiTailwindcss, color: "text-[#38B2AC]" },
+      { name: "Chart.js", icon: SiChartdotjs, color: "text-[#FF6384]" },
     ],
     links: {
-      github: "https://github.com/bamcortezz/IMS",
+      github: "https://github.com/bamcortezz/BudgetTracker",
+      live: "https://bloomtracker.free.nf/",
     },
-    image: inventorySystemImg,
-    images: [inventorySystemImg],
+    image: budgetTracker1Img,
+    images: [
+      budgetTracker1Img,
+      budgetTracker2Img,
+      budgetTracker3Img,
+      budgetTracker4Img,
+      budgetTracker5Img,
+      budgetTracker6Img,
+    ],
   },
   {
     title: "Portfolio",
@@ -92,6 +105,7 @@ export const projects = [
     ],
     links: {
       github: "https://github.com/bamcortezz/Portfolio",
+      live: "https://francisemilcortez.vercel.app/",
     },
     image: portfolioImg,
     images: [
