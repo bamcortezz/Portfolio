@@ -26,6 +26,7 @@ import budgetTracker3Img from "@/assets/img/projects/budget-tracker/budget-track
 import budgetTracker4Img from "@/assets/img/projects/budget-tracker/budget-tracker4.png";
 import budgetTracker5Img from "@/assets/img/projects/budget-tracker/budget-tracker5.png";
 import budgetTracker6Img from "@/assets/img/projects/budget-tracker/budget-tracker6.png";
+import budgetTracker7Img from "@/assets/img/projects/budget-tracker/budget-tracker7.png"
 import portfolioImg from "@/assets/img/projects/portfolio/portfolio.png";
 import portfolio1Img from "@/assets/img/projects/portfolio/portfolio1.png";
 import portfolio2Img from "@/assets/img/projects/portfolio/portfolio2.png";
@@ -90,6 +91,7 @@ export const projects = [
       budgetTracker4Img,
       budgetTracker5Img,
       budgetTracker6Img,
+      budgetTracker7Img,
     ],
   },
   {
