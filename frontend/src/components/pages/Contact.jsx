@@ -40,7 +40,7 @@ const Contact = () => {
     {
       name: "GitHub",
       icon: FaGithub,
-      url: "https://github.com/bamcortezz",
+      url: "https://github.com/franciscortez",
       iconColor: "text-gray-400",
       bgColor: "bg-gray-400/10",
       hoverBgColor: "group-hover:bg-gray-400/20",
@@ -136,7 +136,7 @@ const Contact = () => {
         setIsSubmitting(false);
       }
     },
-    [formData]
+    [formData],
   );
 
   return (

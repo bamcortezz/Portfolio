@@ -19,7 +19,25 @@ import twitchInsight4Img from "@/assets/img/projects/twitch-insight/twitch-insig
 import twitchInsight5Img from "@/assets/img/projects/twitch-insight/twitch-insight5.png";
 import twitchInsight6Img from "@/assets/img/projects/twitch-insight/twitch-insight6.png";
 import twitchInsight7Img from "@/assets/img/projects/twitch-insight/twitch-insight7.png";
+import twitchInsight8Img from "@/assets/img/projects/twitch-insight/twitch-insight8.png";
+import twitchInsight9Img from "@/assets/img/projects/twitch-insight/twitch-insight9.png";
+import twitchInsight10Img from "@/assets/img/projects/twitch-insight/twitch-insight10.png";
 import twitchInsight11Img from "@/assets/img/projects/twitch-insight/twitch-insight11.png";
+import twitchInsight12Img from "@/assets/img/projects/twitch-insight/twitch-insight12.png";
+import twitchInsight13Img from "@/assets/img/projects/twitch-insight/twitch-insight13.png";
+import twitchInsight14Img from "@/assets/img/projects/twitch-insight/twitch-insight14.png";
+import twitchInsight15Img from "@/assets/img/projects/twitch-insight/twitch-insight15.png";
+import twitchInsight16Img from "@/assets/img/projects/twitch-insight/twitch-insight16.png";
+import twitchInsight17Img from "@/assets/img/projects/twitch-insight/twitch-insight17.png";
+import twitchInsight18Img from "@/assets/img/projects/twitch-insight/twitch-insight18.png";
+import twitchInsight19Img from "@/assets/img/projects/twitch-insight/twitch-insight19.png";
+import twitchInsight20Img from "@/assets/img/projects/twitch-insight/twitch-insight20.png";
+import twitchInsight21Img from "@/assets/img/projects/twitch-insight/twitch-insight21.png";
+import twitchInsight22Img from "@/assets/img/projects/twitch-insight/twitch-insight22.png";
+import twitchInsight23Img from "@/assets/img/projects/twitch-insight/twitch-insight23.png";
+import twitchInsight24Img from "@/assets/img/projects/twitch-insight/twitch-insight24.png";
+import twitchInsight25Img from "@/assets/img/projects/twitch-insight/twitch-insight25.png";
+import twitchInsight26Img from "@/assets/img/projects/twitch-insight/twitch-insight26.png";
 import budgetTracker1Img from "@/assets/img/projects/budget-tracker/budget-tracker1.png";
 import budgetTracker2Img from "@/assets/img/projects/budget-tracker/budget-tracker2.png";
 import budgetTracker3Img from "@/assets/img/projects/budget-tracker/budget-tracker3.png";
@@ -63,7 +81,25 @@ export const projects = [
       twitchInsight5Img,
       twitchInsight6Img,
       twitchInsight7Img,
+      twitchInsight8Img,
+      twitchInsight9Img,
+      twitchInsight10Img,
       twitchInsight11Img,
+      twitchInsight12Img,
+      twitchInsight13Img,
+      twitchInsight14Img,
+      twitchInsight15Img,
+      twitchInsight16Img,
+      twitchInsight17Img,
+      twitchInsight18Img,
+      twitchInsight19Img,
+      twitchInsight20Img,
+      twitchInsight21Img,
+      twitchInsight22Img,
+      twitchInsight23Img,
+      twitchInsight24Img,
+      twitchInsight25Img,
+      twitchInsight26Img,
     ],
   },
   {
