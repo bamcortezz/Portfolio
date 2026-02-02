@@ -43,7 +43,6 @@ const LandingPage = () => (
 
 function AppContent() {
   const location = useLocation();
-  const isProjectDetailPage = location.pathname.startsWith("/project/");
 
   // Reset scroll position to top on route change
   useEffect(() => {
@@ -52,7 +51,6 @@ function AppContent() {
 
   return (
     <div className="app">
-      {!isProjectDetailPage && <Navbar />}
       <Suspense
         fallback={
           <div className="flex items-center justify-center min-h-screen">
